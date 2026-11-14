@@ -4,6 +4,7 @@ const app = express();
 const PORT = 3000;
 
 app.use(express.json());
+app.use(express.static('public'));
 
 // Send all /applications requests to the router
 app.use('/applications', appRoutes);
