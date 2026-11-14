@@ -36,3 +36,14 @@ if (this.changes === 0) return res.status(404).json({ error: "Application not fo
 res.json({ message: "Application deleted successfully", id: req.params.id });
 });
 };
+
+const jwt = require('jsonwebtoken');
+
+exports.login = (req, res) => {
+// Mock user data payload
+const user = { username: "arzaqul" };
+
+// Generates a digital key valid for 1 hour
+const token = jwt.sign(user, "my_super_secret_key", { expiresIn: '1h' });
+res.json({ token });
+};
